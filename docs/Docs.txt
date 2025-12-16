@@ -1,0 +1,73 @@
+# Virtual Enterprise Network Security Project (pfSense)
+
+## 1. Introduction
+This project demonstrates the design, implementation, and validation of a secure virtual enterprise network using pfSense as a perimeter firewall.
+
+The project simulates a real-world corporate environment with controlled network segmentation, firewall rule enforcement, and traffic validation using packet captures.
+
+---
+
+## 2. Objectives
+The objectives of this project are to:
+- Design a secure enterprise-style network
+- Implement firewall rules using pfSense
+- Control and monitor internal and external traffic
+- Validate security controls using packet-level evidence
+
+---
+
+## 3. Tools and Technologies
+- pfSense Firewall
+- VirtualBox
+- Ubuntu Server (Internal services)
+- kali linux Client (User endpoint)
+- pfSense capture (Traffic analysis)
+- Git & GitHub (Version control and documentation)
+
+---
+
+## 4. Network Architecture
+The network is segmented into the following zones:
+- WAN: External network
+- LAN: Internal corporate users
+- DMZ: Public-facing or semi-trusted services
+
+Each zone is protected using firewall rules to prevent unauthorized access and lateral movement.
+
+Refer to the `/architecture/` folder for network topology diagrams.
+
+---
+
+## 5. Security Controls Implemented
+- Stateful firewall rules
+- LAN-to-WAN outbound traffic control
+- WAN-to-LAN ICMP blocking
+- DNS traffic filtering
+- DHCP lease management
+- Network segmentation enforcement
+
+---
+
+## 6. Threat Model
+The project mitigates common enterprise threats such as:
+- Unauthorized external access
+- Network reconnaissance via ICMP
+- DNS misuse and traffic leakage
+- Uncontrolled internal network access
+
+---
+
+## 7. Evidence and Validation
+All security controls were validated using:
+- Packet capture files (`/pcaps`)
+- Firewall screenshots (`/screenshots`)
+- Validation reports (`/validation`)
+
+---
+
+## 8. Learning Outcomes
+Through this project, practical experience was gained in:
+- Enterprise firewall configuration
+- Network traffic analysis
+- Security documentation
+- Evidence-based validation of controls

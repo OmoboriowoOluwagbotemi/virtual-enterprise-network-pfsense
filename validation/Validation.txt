@@ -1,0 +1,58 @@
+# Security Control Validation Report
+
+This document provides technical validation for all implemented security controls using packet-level evidence and firewall behavior analysis.
+
+---
+
+## Validation 1: DHCP Address Assignment
+
+### Objective
+Verify that internal clients can successfully obtain IP addresses from the DHCP server.
+
+### Method
+A client system was connected to the LAN interface and initiated a DHCP request. Traffic was captured on the pfSense LAN interface.
+
+### Evidence
+- PCAP File: `pcaps/DHCP_DORA.pcap`
+
+### Result
+The DHCP Discover, Offer, Request, and Acknowledge (DORA) sequence was observed, confirming successful IP assignment.
+
+---
+
+## Validation 2: Internal DNS Resolution
+
+### Objective
+Ensure DNS traffic from internal clients is permitted and functional.
+
+### Method
+An internal client performed DNS queries to resolve domain names. Traffic was captured for analysis.
+
+### Evidence
+- PCAP File: `pcaps/DNS_intranet.pcap`
+
+### Result
+DNS query and response packets were observed, validating correct DNS access through the firewall.
+
+---
+
+## Validation 3: ICMP Blocking from WAN to LAN
+
+### Objective
+Confirm that ICMP traffic originating from the WAN is blocked from reaching the LAN.
+
+### Method
+ICMP echo requests were sent from the WAN interface toward internal systems.
+
+### Evidence
+- PCAP File: `pcaps/ICMP_block.pcap`
+- Firewall rule screenshots (`/screenshots`)
+
+### Result
+ICMP packets were dropped by pfSense as expected. No echo replies were received.
+
+---
+
+## Conclusion
+All firewall rules and security controls functioned as designed.  
+Packet-level evidence confirms effective network segmentation and traffic control within the virtual enterprise environment.
